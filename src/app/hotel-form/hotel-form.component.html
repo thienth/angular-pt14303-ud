@@ -1,0 +1,29 @@
+<form [formGroup]="hotelForm">
+  <div>
+    <label for="">Hotel Name:</label>
+    <input type="text" formControlName="name">
+    <div class="" *ngIf="name.invalid && (name.dirty || name.touched)">
+      <p *ngIf="name.errors.required">Hãy nhập tên khách sạn</p>
+      <p *ngIf="name.errors.minlength">Tên khách sạn cần lớn hơn 3 ký tự</p>
+      <p *ngIf="name.errors.maxlength">Tên khách sạn không vượt quá 20 ký tự</p>
+    </div>
+  </div>
+  <div>
+    <label for="">Hotel Logo:</label>
+    <input type="text" formControlName="logo">
+    <div class="" *ngIf="logo.invalid && (logo.dirty || logo.touched)">
+      <p *ngIf="logo.errors.required">Hãy nhập đường dẫn ảnh</p>
+      <p *ngIf="logo.errors.pattern">Nhập đúng đường dẫn chứa ảnh</p>
+    </div>
+  </div>
+    <div>
+    <label for="">Hotel Adress:</label>
+    <input type="text" formControlName="address">
+    
+  </div>
+    <div>
+    <label for="">Hotel Country:</label>
+    <input type="text" formControlName="country">
+  </div>
+  <button (click)="saveHotel()" >Save</button>
+</form>

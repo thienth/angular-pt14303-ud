@@ -1,0 +1,14 @@
+<div *ngIf="hotelDetail == null">
+  <img src="https://media2.giphy.com/media/11FuEnXyGsXFba/source.gif" width="200">
+</div>
+<div *ngIf="hotelDetail != null">
+  <h2>{{hotelDetail.name}}</h2>
+  <img [src]="hotelDetail.logo" width="150">
+  <br>
+  <p>{{hotelDetail.address}}, {{hotelDetail.country}}</p>
+  <a [routerLink]="['../../edit-hotel', hotelDetail.id]">edit</a>
+  <button (click)="removeHotel()">Delete</button>
+</div>
+<ul>
+  <li *ngFor="let room of rooms">{{room.name}}</li>
+</ul>
